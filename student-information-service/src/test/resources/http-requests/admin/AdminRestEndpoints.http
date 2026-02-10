@@ -1,0 +1,10 @@
+### single student
+POST http://localhost:8080/admin/student
+Content-Type: application/json
+
+{
+  "firstName": "Sqinton",
+  "middleName": "Pro",
+  "lastName": "Quo"
+}
+###

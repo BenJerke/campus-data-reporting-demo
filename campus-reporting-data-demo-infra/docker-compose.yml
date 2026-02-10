@@ -1,0 +1,17 @@
+services:
+  sis-db:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=sis_db'
+      - 'POSTGRES_PASSWORD=${SIS_DB_PW}'
+      - 'POSTGRES_USER=${SIS_DB_USER}'
+    ports:
+      - '${SIS_DB_PORT_MAPPING}'
+  fin_ms-db:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=fin_ms_db'
+      - 'POSTGRES_PASSWORD=${FIN_MS_DB_PW}'
+      - 'POSTGRES_USER=${FIN_MS_DB_USER}'
+    ports:
+      - '5433:5432'
