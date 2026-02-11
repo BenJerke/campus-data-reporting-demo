@@ -1,13 +1,8 @@
 # Student Information Service
 This is one of several REST APIs that feeds a couple databases which I'll be using to create reports in various BI apps for practice.
-This one's responsible for capturing information related to academic operations at a higher education institution: 
-- Departments
-- Faculty Members
-- Students
-- Courses
-- Grades
-- Financial Aid
-- Whatever else I can think of
+This one's responsible for capturing information related to academic operations at a higher education institution. 
+- Hire faculty. Assign them to departments and courses. Pay them salaries.
+- Enroll new students each semester. Manage their financial aid, tuition, and course registration. Record their grades and generate transcripts.
 
 
 ### Ripped from the Quarkus REST JSON Quickstart - thanks. 
