@@ -10,8 +10,6 @@ This one's responsible for capturing information related to academic operations 
 - Whatever else I can think of
 
 
-## Data Model
-- Students have c
 
 ## REST API
 
