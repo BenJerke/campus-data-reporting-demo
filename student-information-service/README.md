@@ -10,10 +10,6 @@ This one's responsible for capturing information related to academic operations 
 - Whatever else I can think of
 
 
-
-## REST API
-
-##
 ### Ripped from the Quarkus REST JSON Quickstart - thanks. 
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
