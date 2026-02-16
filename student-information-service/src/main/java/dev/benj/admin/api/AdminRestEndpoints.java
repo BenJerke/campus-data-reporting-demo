@@ -1,6 +1,8 @@
 package dev.benj.admin.api;
 
 import dev.benj.common.model.*;
+import dev.benj.common.model.dto.StudentWithFinancialAidAwards;
+import dev.benj.common.model.dto.StudentWithSemesters;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -10,10 +12,8 @@ import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Path("/admin")
 @Produces(MediaType.APPLICATION_JSON)
@@ -42,10 +42,10 @@ public class AdminRestEndpoints {
         if(student == null || semester == null){
             return Response.status(404).build();
         }
-        student.enrollForSemester(semester);
+        student.registerForSemester(semester);
         entityManager.persist(student);
 
-        return Response.ok(new StudentWithSemesters(studentId, student.getName(), student.getSemestersEnrolled())).build();
+        return Response.ok(new StudentWithSemesters(studentId, student.getName(), student.getSemestersAttended())).build();
     }
 
     @POST
@@ -56,9 +56,7 @@ public class AdminRestEndpoints {
         query.setParameter("semesterName", semesterName);
         Semester semester = query.getSingleResultOrNull();
         if(semester == null){
-            return Response
-                    .status(404)
-                    .entity("Semester named %s not found.".formatted(semesterName)).build();
+            return Response.status(404).entity("Semester named %s not found.".formatted(semesterName)).build();
         }
         course.offerCourseInSemester(semester);
         entityManager.persist(course);
@@ -109,9 +107,7 @@ public class AdminRestEndpoints {
     public Response awardFinancialAidToStudent(Student student, @QueryParam("packageId") long packageId){
 
         var savedPackage = entityManager.find(FinancialAidPackage.class, packageId);
-        var savedStudent = entityManager.find(Student.class, student.getId());
-//        var studentPackages = savedStudent.getFinancialAidPackages();
-//        studentPackages.add(savedPackage);
+        Student savedStudent = entityManager.find(Student.class, student.getId());
         savedStudent.awardFinancialAid(savedPackage);
         entityManager.persist(savedStudent);
 
@@ -123,6 +119,7 @@ public class AdminRestEndpoints {
                 savedStudent.getFinancialAidPackages()
         )).build();
     }
+
 
 
 
@@ -149,28 +146,49 @@ public class AdminRestEndpoints {
     @POST
     @Path("/position/")
     @Transactional
-    public Response createFacultyPositionInDepartment(@QueryParam("deptId") Long deptId, FacultyPosition newPosition){
-        Department department = entityManager.find(Department.class, deptId);
-        if(department == null){
-            return Response.status(404).entity("Department not found").build();
+    public Response createFacultyPositionInDepartment(@QueryParam("deptId") Long deptId, @QueryParam("deptName") String deptName, FacultyPosition newPosition){
+        if(deptId == null){
+            var query = entityManager.createQuery("from Department where name = :deptName", Department.class);
+            query.setParameter("deptName", deptName);
+            Department department = query.getSingleResult();
+            if(department == null){
+                return Response.status(404).entity("Department not found").build();
+            }
+            newPosition.setDepartment(department);
+            entityManager.persist(newPosition);
+            return Response.ok(newPosition).build();
+        } else {
+            Department department = entityManager.find(Department.class, deptId);
+            if (department == null) {
+                return Response.status(404).entity("Department not found").build();
+            }
+            newPosition.setDepartment(department);
+            entityManager.persist(newPosition);
+            return Response.ok(newPosition).build();
         }
-        newPosition.setDepartment(department);
-        entityManager.persist(newPosition);
-        return Response.ok(newPosition).build();
     }
-
     // Create faculty member with a position
     @POST
     @Path("/faculty/")
     @Transactional
-    public Response createFacultyMember(@QueryParam("positionId") Long positionId, FacultyMember newFacultyMember){
-        FacultyPosition position = entityManager.find(FacultyPosition.class, positionId);
-        if(position == null){
-            return Response.status(404).entity("Position not found").build();
+    public Response createFacultyMember(@QueryParam("positionId") Long positionId, @QueryParam("positionTitle") String positionTitle, @QueryParam("departmentName")String departmentName, FacultyMember newFacultyMember){
+        if(positionId == null){
+            var query = entityManager.createQuery("from FacultyPosition as fp where title = :positionTitle and fp.department.name = :departmentName", FacultyPosition.class);
+            query.setParameter("positionTitle", positionTitle);
+            query.setParameter("departmentName", departmentName);
+            var position = query.getSingleResult();
+            newFacultyMember.setPosition(position);
+            entityManager.persist(newFacultyMember);
+            return Response.ok(position).build();
+        } else {
+            FacultyPosition position = entityManager.find(FacultyPosition.class, positionId);
+            if (position == null) {
+                return Response.status(404).entity("Position not found").build();
+            }
+            newFacultyMember.setPosition(position);
+            entityManager.persist(newFacultyMember);
+            return Response.ok(newFacultyMember).build();
         }
-        newFacultyMember.setPosition(position);
-        entityManager.persist(newFacultyMember);
-        return Response.ok(position).build();
     }
 
     // Assign faculty member to course
@@ -189,35 +207,4 @@ public class AdminRestEndpoints {
         entityManager.persist(course);
         return Response.ok(course).build();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-// DTO Classes
-
-record StudentWithFinancialAidAwards(
-        Long id,
-        Name name,
-        LocalDate enrollmentDate,
-        LocalDate graduationDate,
-        Set<FinancialAidPackage> financialAidAwards
-){}
-
-record StudentWithSemesters(
-        Long id,
-        Name name,
-        Set<Semester> semesters
-){}

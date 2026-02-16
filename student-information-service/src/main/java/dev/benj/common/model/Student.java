@@ -6,9 +6,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.NaturalId;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Student {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +37,7 @@ public class Student {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JsonIgnore
-    Set<Semester> semestersEnrolled;
+    Set<Semester> semestersAttended;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JsonIgnore
@@ -51,11 +51,11 @@ public class Student {
         this.financialAidPackages.add(pkg);
     }
 
-    public void enrollForSemester(Semester semester){
-        if(this.semestersEnrolled == null){
-            this.semestersEnrolled = new HashSet<>();
+    public void registerForSemester(Semester semester){
+        if(this.semestersAttended == null){
+            this.semestersAttended = new HashSet<>();
         }
-        this.semestersEnrolled.add(semester);
+        this.semestersAttended.add(semester);
     }
 
     public void registerForCourse(Course course){

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Data
@@ -27,7 +28,7 @@ public class FacultyPosition {
     @JsonIgnore
     private Department department;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = FacultyMember_.POSITION)
     @JsonIgnore
-    FacultyMember facultyMember;
+    Set<FacultyMember> facultyMembers;
 }

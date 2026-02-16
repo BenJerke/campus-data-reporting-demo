@@ -3,10 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.benj</groupId>
     <artifactId>student-information-service</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>quarkus</packaging>
 
+
     <properties>
+        <java.version>25</java.version>
         <compiler-plugin.version>3.14.1</compiler-plugin.version>
         <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +22,7 @@
         <hibernate-orm.version>7.2.3.Final</hibernate-orm.version>
         <slf4j.version>2.0.17</slf4j.version>
         <lombok.version>1.18.42</lombok.version>
+        <version.benj-validators>0.0.1</version.benj-validators>
     </properties>
 
     <dependencyManagement>
@@ -67,17 +70,11 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jdbc-postgresql</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-api</artifactId>-->
-<!--            <version>${slf4j.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>${slf4j.version}</version>-->
-<!--        </dependency>-->
-<!--        -->
+        <dependency>
+            <groupId>dev.benj</groupId>
+            <artifactId>validators</artifactId>
+            <version>${version.benj-validators}</version>
+        </dependency>
         <dependency>
             <groupId>org.jboss.slf4j</groupId>
             <artifactId>slf4j-jboss-logmanager</artifactId>

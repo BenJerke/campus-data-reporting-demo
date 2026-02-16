@@ -26,7 +26,7 @@ public class FacultyMember {
     @JsonIgnore
     private Set<Course> courses;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JsonIgnore
     private FacultyPosition position;
 

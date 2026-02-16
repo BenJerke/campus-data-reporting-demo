@@ -1,10 +1,665 @@
-### single student
-POST http://localhost:8080/admin/student
+### Semesters
+POST http://localhost:8080/admin/semester
 Content-Type: application/json
 
 {
-  "firstName": "Sqinton",
-  "middleName": "Pro",
-  "lastName": "Quo"
+    "name":"Fall 2022",
+    "tuition": 8000.00,
+    "startDate": "2022-09-01",
+    "endDate": "2022-12-23"
+}
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+  "name":"Spring 2023",
+  "tuition": 8000.00,
+  "startDate": "2023-01-07",
+  "endDate": "2023-05-11"
+}
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+"name":"Fall 2023",
+"tuition": 8000.00,
+"startDate": "2023-09-01",
+"endDate": "2023-12-23"
+}
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+  "name":"Spring 2024",
+  "tuition": 8000.00,
+  "startDate": "2024-01-07",
+  "endDate": "2024-05-11"
+}
+
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+"name":"Fall 2024",
+"tuition": 8000.00,
+"startDate": "2024-09-01",
+"endDate": "2024-12-23"
+}
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+  "name":"Spring 2025",
+  "tuition": 8000.00,
+  "startDate": "2025-01-07",
+  "endDate": "2025-05-11"
+}
+
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+  "name":"Fall 2025",
+  "tuition": 8000.00,
+  "startDate": "2025-09-01",
+  "endDate": "2025-12-23"
+}
+
+###
+POST http://localhost:8080/admin/semester
+Content-Type: application/json
+
+{
+  "name":"Spring 2026",
+  "tuition": 8000.00,
+  "startDate": "2026-01-07",
+  "endDate": "2026-05-11"
+}
+
+### Departments
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "History"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Biology"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Linguistics"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Philosophy"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Economics"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Mathematics"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Computer Science"
+}
+
+### 
+POST http://localhost:8080/admin/department
+Content-Type: application/json
+
+{
+  "name": "Political Science"
 }
 ###
+POST http://localhost:8080/admin/position?deptName=Economics
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Economics
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Economics
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+###
+POST http://localhost:8080/admin/position?deptName=Mathematics
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Mathematics
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Mathematics
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+###
+POST http://localhost:8080/admin/position?deptName=Computer Science
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Computer Science
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Computer Science
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+###
+POST http://localhost:8080/admin/position?deptName=Political Science
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Political Science
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Political Science
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+
+### Positions
+###
+POST http://localhost:8080/admin/position?deptName=History
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=History
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=History
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Biology
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Biology
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Biology
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+###
+POST http://localhost:8080/admin/position?deptName=Linguistics
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Linguistics
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Linguistics
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+###
+POST http://localhost:8080/admin/position?deptName=Philosophy
+Content-Type: application/json
+
+{
+  "title": "Professor",
+  "salary": 100000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Philosophy
+Content-Type: application/json
+
+{
+  "title": "Assistant Professor",
+  "salary": 750000.00
+}
+
+###
+POST http://localhost:8080/admin/position?deptName=Philosophy
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 750000.00
+}
+
+
+###
+POST http://localhost:8080/admin/position?deptName=Political Science
+Content-Type: application/json
+
+{
+  "title": "Adjunct Professor",
+  "salary": 650000.00
+}
+
+
+### Faculty Members
+
+### History Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=History
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Margaret",
+    "middleName": "Anne",
+    "lastName": "Thompson"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=History
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "David",
+    "middleName": "Lee",
+    "lastName": "Harrison"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=History
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Sarah",
+    "middleName": "Jane",
+    "lastName": "Mitchell"
+  }
+}
+
+### Biology Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Biology
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Robert",
+    "middleName": "James",
+    "lastName": "Chen"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Biology
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Emily",
+    "middleName": "Grace",
+    "lastName": "Nakamura"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Biology
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Michael",
+    "middleName": "Thomas",
+    "lastName": "Rivera"
+  }
+}
+
+### Linguistics Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Linguistics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Elena",
+    "middleName": "Marie",
+    "lastName": "Volkov"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Linguistics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "James",
+    "middleName": "William",
+    "lastName": "O'Brien"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Linguistics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Priya",
+    "middleName": "Lakshmi",
+    "lastName": "Sharma"
+  }
+}
+
+### Philosophy Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Philosophy
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Thomas",
+    "middleName": "Edward",
+    "lastName": "Whitman"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Philosophy
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Sophia",
+    "middleName": "Rose",
+    "lastName": "Andersen"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Philosophy
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Marcus",
+    "middleName": "Anthony",
+    "lastName": "Blake"
+  }
+}
+
+### Economics Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Economics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Katherine",
+    "middleName": "Elizabeth",
+    "lastName": "Park"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Economics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Ahmed",
+    "middleName": "Hassan",
+    "lastName": "Malik"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Economics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Jennifer",
+    "middleName": "Lynn",
+    "lastName": "Foster"
+  }
+}
+
+### Mathematics Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Mathematics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Alexander",
+    "middleName": "Nikolai",
+    "lastName": "Petrov"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Mathematics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Michelle",
+    "middleName": "Ann",
+    "lastName": "Wong"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Mathematics
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Daniel",
+    "middleName": "Joseph",
+    "lastName": "Sullivan"
+  }
+}
+
+### Computer Science Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Computer Science
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Lisa",
+    "middleName": "Marie",
+    "lastName": "Huang"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Computer Science
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Christopher",
+    "middleName": "Ryan",
+    "lastName": "Martinez"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Computer Science
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Amanda",
+    "middleName": "Claire",
+    "lastName": "Johnson"
+  }
+}
+
+### Political Science Department Faculty
+POST http://localhost:8080/admin/faculty?positionTitle=Professor&departmentName=Political Science
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "William",
+    "middleName": "Henry",
+    "lastName": "Crawford"
+  }
+}
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Assistant Professor&departmentName=Political Science
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Rachel",
+    "middleName": "Nicole",
+    "lastName": "Kim"
+  }
+}
