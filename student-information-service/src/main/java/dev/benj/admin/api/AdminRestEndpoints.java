@@ -58,7 +58,6 @@ public class AdminRestEndpoints {
         if(semester == null){
             return Response.status(404).entity("Semester named %s not found.".formatted(semesterName)).build();
         }
-        course.offerCourseInSemester(semester);
         entityManager.persist(course);
         return Response.ok(course).build();
     }
@@ -118,17 +117,6 @@ public class AdminRestEndpoints {
                 savedStudent.getGraduationDate(),
                 savedStudent.getFinancialAidPackages()
         )).build();
-    }
-
-
-
-
-    @GET
-    @Path("/students/")
-    public Response listStudents(){
-        var studentQuery = entityManager.createQuery("from Student", Student.class);
-        List<Student> students = studentQuery.getResultList();
-        return Response.ok(students).build();
     }
 
     // Faculty Domain Endpoints

@@ -39,7 +39,7 @@ public class Semester {
         this.tuition = tuition;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = Course_.SEMESTERS, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = Course_.SEMESTERS)
     @JsonIgnore
     private Set<Course> coursesOffered = new HashSet<>();
 

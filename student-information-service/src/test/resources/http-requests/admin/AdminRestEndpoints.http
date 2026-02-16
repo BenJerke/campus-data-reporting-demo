@@ -376,16 +376,6 @@ Content-Type: application/json
 }
 
 
-###
-POST http://localhost:8080/admin/position?deptName=Political Science
-Content-Type: application/json
-
-{
-  "title": "Adjunct Professor",
-  "salary": 650000.00
-}
-
-
 ### Faculty Members
 
 ### History Department Faculty
@@ -663,3 +653,277 @@ Content-Type: application/json
     "lastName": "Kim"
   }
 }
+
+###
+POST http://localhost:8080/admin/faculty?positionTitle=Adjunct Professor&departmentName=Political Science
+Content-Type: application/json
+
+{
+  "name": {
+    "firstName": "Benjamin",
+    "middleName": "Scott",
+    "lastName": "Taylor"
+  }
+}
+
+### Courses
+
+### History Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "HIST 101 - World History I"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "HIST 102 - World History II"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "HIST 201 - American History"
+}
+
+####
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "HIST 301 - Medieval Europe"
+}
+
+#### Biology Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "BIOL 101 - Introduction to Biology"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "BIOL 102 - General Biology II"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "BIOL 201 - Cell Biology"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "BIOL 301 - Genetics"
+}
+
+### Linguistics Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "LING 101 - Introduction to Linguistics"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "LING 102 - Phonetics and Phonology"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "LING 201 - Syntax"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "LING 301 - Sociolinguistics"
+}
+
+### Philosophy Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "PHIL 101 - Introduction to Philosophy"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "PHIL 102 - Ethics"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "PHIL 201 - Logic"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "PHIL 301 - Metaphysics"
+}
+
+### Economics Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "ECON 101 - Principles of Microeconomics"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "ECON 102 - Principles of Macroeconomics"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "ECON 201 - Intermediate Microeconomics"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "ECON 301 - Econometrics"
+}
+
+### Mathematics Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "MATH 101 - Calculus I"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "MATH 102 - Calculus II"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "MATH 201 - Linear Algebra"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "MATH 301 - Differential Equations"
+}
+
+### Computer Science Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "CS 101 - Introduction to Programming"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "CS 102 - Data Structures"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "CS 201 - Algorithms"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "CS 301 - Database Systems"
+}
+
+### Political Science Department Courses
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "POLS 101 - Introduction to Political Science"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Spring 2025
+Content-Type: application/json
+
+{
+  "title": "POLS 102 - American Government"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2024
+Content-Type: application/json
+
+{
+  "title": "POLS 201 - Comparative Politics"
+}
+
+###
+POST http://localhost:8080/admin/course/?semester=Fall 2025
+Content-Type: application/json
+
+{
+  "title": "POLS 301 - International Relations"
+}
+
+
+
+
